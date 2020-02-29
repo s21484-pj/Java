@@ -1,0 +1,30 @@
+/*
+Pyramid of letters
+Author: Maciej Leciejewski
+*/
+package com.company;
+
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        char LiterkaA = 'a';
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Podaj ilosc poziomow piramidy: ");
+        int poziomy = sc.nextInt();
+
+        for (int i = 0; i < poziomy; i++) {
+            for (int j = 0; j < poziomy * 2; j++) {
+                if (j < (poziomy - i) || j > (poziomy + i)) {
+                    System.out.print(" ");
+                } else {
+                    System.out.print(LiterkaA);
+                }
+            }
+            System.out.println();
+        }
+    }
+}
