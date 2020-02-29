@@ -1,0 +1,37 @@
+/*
+Calculator of BMI
+Author: Maciej Leciejewski
+ */
+package com.company;
+import java.util.Scanner;
+
+
+public class Main {
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        System.out.println("Kalkulator BMI");
+        System.out.println("Uzywaj przecinka (,) aby podac ilosc cm po m, lub dg po kg");
+
+        System.out.println("Podaj swoj wzrost (w metrach): ");
+        double Wzrost = in.nextDouble();
+        System.out.println("Podaj swoja wage (w kg): ");
+        double Waga = in.nextDouble();
+        double BMI = Waga / (Wzrost * Wzrost);
+        System.out.print("Twoje BMI wynosi: ");
+        System.out.println(BMI);
+
+        if (BMI < 18.5){
+            System.out.println("Niedowaga.");
+        }
+        else if (BMI >= 18.5  && BMI < 25){
+            System.out.println("Waga w normie.");
+        }
+        else if (BMI >= 25 && BMI < 30){
+            System.out.println("Nadwaga.");
+        }
+        else {
+            System.out.println("Otylosc");
+        }
+    }
+}
