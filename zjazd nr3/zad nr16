@@ -1,0 +1,36 @@
+/*
+    Write a program to print the name, salary and date of joining of 8employees in a company.
+    Author: Maciej Leciejewski
+ */
+package com.company;
+
+public class Employees8 {
+
+    private String name;
+    private int salary;
+    private int date;
+
+    public Employees8 (String name, int salary, int date) {
+        this.name = name;
+        this.salary = salary;
+        this.date = date;
+    }
+
+    public String Date(int day, int month, int year) {
+        return String.format("%02d", day) + "/" + String.format("%02d", month) + "/" + String.format("%04d", year);
+    }
+
+    public static void main(String[] args) {
+        Employees8 a = new Employees8("a", 4444, 2000);
+        Employees8 b = new Employees8("b", 3333, 2019);
+        Employees8 c = new Employees8("c", 5555, 2018);
+        Employees8 d = new Employees8("d", 4646, 2015);
+        Employees8 e = new Employees8("e", 5757, 2006);
+        Employees8 f = new Employees8("f", 3636, 2012);
+        Employees8 g = new Employees8("g", 5454, 2010);
+        Employees8 h = new Employees8("h", 7777, 2013);
+        System.out.println(a.Date(22,12,2000));
+        System.out.println(b.name);
+        System.out.println(f.salary);
+    }
+}
