@@ -1,0 +1,70 @@
+/*
+    GradesStatisctics
+    Author: Maciej Leciejewski
+ */
+package com.company;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Scanner;
+
+public class GradesStatistics {
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+        double sum = 0;
+        double average = 0;
+        double median = 0;
+        double deviation = 0;
+        System.out.println("Enter the number of students: ");
+        int students = sc.nextInt();
+        System.out.println("Enter grades between 0 and 100.");
+        ArrayList<Integer> gradesList = new ArrayList<>();
+        for (int i = 1; i <= students;) {
+            System.out.print("Enter the grade for student " + i + ": ");
+            int grade = sc.nextInt();
+            if (grade >= 0 && grade <= 100) {
+                gradesList.add(grade);
+                sum += grade;
+                i++;
+            } else {
+                System.out.println("Wrong grade. Enter the correct one.");
+            }
+        }
+        System.out.println("The grades are: " + gradesList);
+        // average
+        average = sum / students;
+
+        // median
+        Collections.sort(gradesList);
+        int size = gradesList.size();
+        if (size % 2 == 1){
+            int central = (size) / 2;
+            median = gradesList.get(central);
+        }
+        else {
+            int firstCentral = (size / 2) - 1;
+            int secondCentral = size / 2;
+            double sumTwoCentrals = gradesList.get(firstCentral);
+            sumTwoCentrals += gradesList.get(secondCentral);
+            median = (sumTwoCentrals) / 2;
+        }
+
+        // deviation
+        double mean = sum / gradesList.size();
+        for (double num : gradesList) {
+            deviation += Math.pow(num - mean, 2);
+        }
+        deviation = Math.sqrt(deviation / gradesList.size());
+
+
+        System.out.printf("The average is: %.2f", average);
+        System.out.println();
+        System.out.printf("The median is: %.2f", median);
+        System.out.println();
+        System.out.println("The minimum is: " + Collections.min(gradesList));
+        System.out.println("The maximum is: " + Collections.max(gradesList));
+        System.out.printf("The standard deviation is: %.2f", deviation);
+    }
+}
